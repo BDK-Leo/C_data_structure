@@ -4,7 +4,7 @@
 void SLInit(SL* ps)
 {
 	ps->arr = NULL;//这里malloc也可以
-	ps->size = ps->capacity = 0;
+	ps->size = ps->capacity = 0;//划定空间大小
 }
 
 //销毁
