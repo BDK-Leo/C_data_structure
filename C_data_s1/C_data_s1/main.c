@@ -1,3 +1,2 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-
-//˳�����Ӧ��
+﻿#define _CRT_SECURE_NO_WARNINGS 1
+//顺序表的应用
