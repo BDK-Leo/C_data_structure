@@ -73,7 +73,11 @@ void SLPopFront(SL* ps)
 {
 	assert(ps);
 	assert(ps->size);
-
+	for (int i = 0;i < ps->size - 1;i++)
+	{
+		ps->arr[i] = ps->arr[i + 1];
+	}
+	ps->size--;
 }
 
 //¥Ú”°

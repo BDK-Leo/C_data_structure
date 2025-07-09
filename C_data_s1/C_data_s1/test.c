@@ -20,10 +20,10 @@ void SLTest01()
 
 	//≤‚ ‘Œ≤…æ
 	SLPopBack(&sl);
-
+	
 	//≤‚ ‘Õ∑…æ
 	SLPopFront(&sl);
-
+	
 	//œ˙ªŸ
 	SLDestroy(&sl);
 }
