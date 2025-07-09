@@ -16,14 +16,15 @@ void SLTest01()
 	//≤‚ ‘Õ∑≤Â
 	SLPushFront(&sl,5);
 	SLPushFront(&sl,6);
-	SLPrint(sl);
+	
 
 	//≤‚ ‘Œ≤…æ
 	SLPopBack(&sl);
 	
 	//≤‚ ‘Õ∑…æ
 	SLPopFront(&sl);
-	
+	SLPrint(sl);
+
 	//œ˙ªŸ
 	SLDestroy(&sl);
 }
