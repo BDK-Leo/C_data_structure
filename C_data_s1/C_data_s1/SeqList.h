@@ -1,6 +1,6 @@
-#pragma once
-//¶¨ÒåË³Ğò±íµÄ½á¹¹ÒÔ¼°ÉùÃ÷Ë³Ğò±íµÄ·½·¨
-//¶¯Ì¬Ë³Ğò±í
+ï»¿#pragma once
+//å®šä¹‰é¡ºåºè¡¨çš„ç»“æ„ä»¥åŠå£°æ˜é¡ºåºè¡¨çš„æ–¹æ³•
+//åŠ¨æ€é¡ºåºè¡¨
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
@@ -13,19 +13,28 @@ typedef struct SeqList
 	int capacity;
 }SL;
 
-//Ë³Ğò±í³õÊ¼»¯
+//é¡ºåºè¡¨åˆå§‹åŒ–
 void SLInit(SL* ps);
 
-//Ë³Ğò±íµÄ²åÈë
-void SLPushBack(SL* ps, SLDataType x);//Î²²å
-void SLPushFront(SL* ps, SLDataType x);//Í·²å
+//é¡ºåºè¡¨çš„æ’å…¥
+void SLPushBack(SL* ps, SLDataType x);//å°¾æ’
+void SLPushFront(SL* ps, SLDataType x);//å¤´æ’
 
-//Ë³Ğò±íµÄÉ¾³ı
-void SLPopBack(SL* ps);//Î²É¾
-void SLPopFront(SL* ps);//Í·É¾
+//é¡ºåºè¡¨çš„åˆ é™¤
+void SLPopBack(SL* ps);//å°¾åˆ 
+void SLPopFront(SL* ps);//å¤´åˆ 
 
-//Ë³Ğò±íµÄ´òÓ¡
+//æŒ‡å®šä½ç½®ä¹‹å‰æ’å…¥
+void SLInsert(SL* ps,int pos,SLDataType x);
+
+//æŒ‡å®šä½ç½®åˆ é™¤
+void SLErase(SL* ps,int pos);
+
+//æŸ¥æ‰¾
+int SLFind(SL* ps,SLDataType x);
+
+//é¡ºåºè¡¨çš„æ‰“å°
 void SLPrint(SL s);
 
-//Ë³Ğò±íµÄÏú»Ù
+//é¡ºåºè¡¨çš„é”€æ¯
 void SLDestroy(SL* ps);

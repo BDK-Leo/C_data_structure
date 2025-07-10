@@ -1,13 +1,13 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿#define _CRT_SECURE_NO_WARNINGS 1
 #include"SeqList.h"
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void SLInit(SL* ps)
 {
-	ps->arr = NULL;//ÕâÀïmallocÒ²¿ÉÒÔ
-	ps->size = ps->capacity = 0;//»®¶¨¿Õ¼ä´óĞ¡
+	ps->arr = NULL;//è¿™é‡Œmallocä¹Ÿå¯ä»¥
+	ps->size = ps->capacity = 0;//åˆ’å®šç©ºé—´å¤§å°
 }
 
-//Ïú»Ù
+//é”€æ¯
 void SLDestroy(SL* ps)
 {
 	if (ps->arr)
@@ -18,34 +18,34 @@ void SLDestroy(SL* ps)
 	ps->size = ps->capacity = 0;
 }
 
-//Ğ£Ñé¿Õ¼äº¯Êı
+//æ ¡éªŒç©ºé—´å‡½æ•°
 void SLCheckCapacity(SL* ps)
 {
 	if (ps->capacity == ps->size)
 	{
-		//ÉêÇë¿Õ¼ä
-		int NewCapacity = ps->capacity == 0 ? 4 : 2 * ps->capacity;//¸ø¿Õ¼ä
+		//ç”³è¯·ç©ºé—´
+		int NewCapacity = ps->capacity == 0 ? 4 : 2 * ps->capacity;//ç»™ç©ºé—´
 		SLDataType* tmp = (SLDataType*)realloc(ps->arr, NewCapacity * 2 * sizeof(SLDataType));
 		if (tmp == NULL)
 		{
 			perror("realloc fail!");
 			exit(1);
 		}
-		//¿Õ¼äÉêÇë³É¹¦
+		//ç©ºé—´ç”³è¯·æˆåŠŸ
 		ps->arr = tmp;
 		ps->capacity = NewCapacity;
 	}
 }
 
-//Î²²å
+//å°¾æ’
 void SLPushBack(SL* ps, SLDataType x)
 {
-	assert(ps);//¶ÏÑÔ
+	assert(ps);//æ–­è¨€
 	SLCheckCapacity(ps);
 	ps->arr[ps->size++] = x;
 }
 
-//Í·²å
+//å¤´æ’
 void SLPushFront(SL* ps, SLDataType x)
 {
 	assert(ps);
@@ -58,17 +58,17 @@ void SLPushFront(SL* ps, SLDataType x)
 	++ps->size;
 }
 
-//Î²É¾
+//å°¾åˆ 
 void SLPopBack(SL* ps)
 {
 	assert(ps);
 	assert(ps->size);
-	//Ë³Ğò±í²»Îª¿Õ
+	//é¡ºåºè¡¨ä¸ä¸ºç©º
 	//ps->arr[ps->size - 1] = -1;
 	--ps->size;
 }
 
-//Í·É¾
+//å¤´åˆ 
 void SLPopFront(SL* ps)
 {
 	assert(ps);
@@ -80,7 +80,48 @@ void SLPopFront(SL* ps)
 	ps->size--;
 }
 
-//´òÓ¡
+//æŒ‡å®šä½ç½®ä¹‹å‰æ’å…¥
+void SLInsert(SL* ps, int pos, SLDataType x)
+{
+	assert(ps);
+	assert(pos >= 0 && pos <= ps->size);
+	SLCheckCapacity(ps);
+	for (int i = ps->size;i > pos;i--)
+	{
+		ps->arr[i] = ps->arr[i - 1];
+	}
+	ps->arr[pos] = x;
+	ps->size++;
+}
+
+//æŒ‡å®šä½ç½®åˆ é™¤
+void SLErase(SL* ps, int pos)
+{
+	assert(ps);
+	assert(pos >= 0 && pos < ps->size);
+	SLCheckCapacity(ps);
+	for (int i = pos;i < ps->size-1;i++)
+	{
+		ps->arr[i] = ps->arr[i + 1];
+	}
+	ps->size--;
+}
+
+//æŸ¥æ‰¾
+int SLFind(SL* ps, SLDataType x)
+{
+	assert(ps);
+	for (int i = 0;i < ps->size;i++)
+	{
+		if (ps->arr[i] == x)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+//æ‰“å°
 void SLPrint(SL s)
 {
 	for (int i = 0;i < s.size;i++)
