@@ -1,31 +1,31 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿#define _CRT_SECURE_NO_WARNINGS 1
 #include"SeqList.h"
 
 void SLTest01()
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	SL sl;
 	SLInit(&sl);
 
-	//²âÊÔÎ²²å
+	//æµ‹è¯•å°¾æ’
 	SLPushBack(&sl,1);
 	SLPushBack(&sl,2);
 	SLPushBack(&sl,3);
 	SLPushBack(&sl,4);
 
-	//²âÊÔÍ·²å
+	//æµ‹è¯•å¤´æ’
 	SLPushFront(&sl,5);
 	SLPushFront(&sl,6);
 	
 
-	//²âÊÔÎ²É¾
+	//æµ‹è¯•å°¾åˆ 
 	SLPopBack(&sl);
 	
-	//²âÊÔÍ·É¾
+	//æµ‹è¯•å¤´åˆ 
 	SLPopFront(&sl);
 	SLPrint(sl);
 
-	//Ïú»Ù
+	//é”€æ¯
 	SLDestroy(&sl);
 }
 
