@@ -30,3 +30,26 @@
 //	}
 //	return newhead;
 //}
+
+//题目二：206反转链表
+//typedef struct ListNode ListNode;
+//struct ListNode* reverseList(struct ListNode* head)
+//{
+//	if (head == NULL)
+//	{
+//		return head;
+//	}
+//	ListNode* newhead, * middle, * newtail;
+//	newhead = NULL; middle = head; newtail = middle->next;
+//	while (middle)
+//	{
+//		middle->next = newhead;
+//		newhead = middle;
+//		middle = newtail;
+//		if (newtail)
+//		{
+//			newtail = newtail->next;
+//		}
+//	}
+//	return  newhead;
+//}
