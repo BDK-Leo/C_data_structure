@@ -72,7 +72,7 @@
 
 //题目四：21合并两个有序链表
 //typedef struct ListNode ListNode;
-//struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) 
+//struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2)
 //{
 //	if (list1 == NULL)
 //	{
@@ -88,34 +88,20 @@
 //
 //	//创建新链表
 //	ListNode* newHead, * newTail;
-//	newHead = newTail = NULL;
+//	newHead = newTail = (ListNode*)malloc(sizeof(ListNode));
 //
 //	while (l1 && l2)
 //	{
 //		if (l1->val < l2->val)
 //		{
-//			if (newHead == NULL)
-//			{
-//				newHead = newTail = l1;
-//			}
-//			else
-//			{
-//				newTail->next = l1;
-//				newTail = newTail->next;
-//			}
+//			newTail->next = l1;
+//			newTail = newTail->next;
 //			l1 = l1->next;
 //		}
 //		else
 //		{
-//			if (newHead == NULL)
-//			{
-//				newHead = newTail = l2;
-//			}
-//			else
-//			{
-//				newTail->next = l2;
-//				newTail = newTail->next;
-//			}
+//			newTail->next = l2;
+//			newTail = newTail->next;
 //			l2 = l2->next;
 //		}
 //	}
@@ -127,7 +113,12 @@
 //	{
 //		newTail->next = l1;
 //	}
-//	return newHead;
+//	ListNode* ret = newHead->next;
+//	free(newHead);
+//	newHead = NULL;
+//	return ret;
 //}
 
-//题目五：
+//题目五：循环链表的经典应用-环形链表的约瑟夫问题
+
+
