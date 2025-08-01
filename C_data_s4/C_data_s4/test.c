@@ -120,5 +120,57 @@
 //}
 
 //题目五：循环链表的经典应用-环形链表的约瑟夫问题
-
+//typedef struct ListNode ListNode;
+////创建节点
+//ListNode* BuyNode(int x)
+//{
+//	ListNode* node = (ListNode*)malloc(sizeof(ListNode));
+//	if (node == NULL)
+//	{
+//		exit(1);
+//	}
+//	node->val = x;
+//	node->next = NULL;
+//	return node;
+//}
+//
+////创建带环链表
+//ListNode* CreateCircle(int n)
+//{
+//	//先创建头节点
+//	ListNode* phead = BuyNode(1);
+//	ListNode* ptail = phead;
+//	for (int i = 2;i <= n;i++)
+//	{
+//		ptail->next = BuyNode(i);
+//		ptail = ptail->next;
+//	}
+//	ptail->next = phead;
+//	return ptail;
+//}
+//
+//int ysf(int n, int m)
+//{
+//	//根据n创建带环链表
+//	ListNode* prev = CreateCircle(n);
+//	ListNode* pcur = prev->next;
+//	int count = 1;
+//	while (pcur->next != pcur)
+//	{
+//		if (count == m)
+//		{
+//			prev->next = pcur->next;
+//			free(pcur);
+//			pcur = prev->next;
+//			count = 1;
+//		}
+//		else
+//		{
+//			prev = pcur;
+//			pcur = pcur->next;
+//			count++;
+//		}
+//	}
+//	return pcur->val;
+//}
 
