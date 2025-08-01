@@ -54,15 +54,80 @@
 //	return  newhead;
 //}
 
-//题目三：
+//题目三：876链表的中间节点
+//(快慢指针)
+//typedef struct ListNode ListNode;
+//struct ListNode* middleNode(struct ListNode* head)
+//{
+//	//创建快慢指针
+//	ListNode* slow = head;
+//	ListNode* fast = head;
+//	while (fast && fast->next)
+//	{
+//		slow = slow->next;
+//		fast = fast->next->next;
+//	}
+//	return slow;
+//}
 
+//题目四：21合并两个有序链表
+//typedef struct ListNode ListNode;
+//struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) 
+//{
+//	if (list1 == NULL)
+//	{
+//		return list2;
+//	}
+//	if (list2 == NULL)
+//	{
+//		return list1;
+//	}
+//
+//	ListNode* l1 = list1;
+//	ListNode* l2 = list2;
+//
+//	//创建新链表
+//	ListNode* newHead, * newTail;
+//	newHead = newTail = NULL;
+//
+//	while (l1 && l2)
+//	{
+//		if (l1->val < l2->val)
+//		{
+//			if (newHead == NULL)
+//			{
+//				newHead = newTail = l1;
+//			}
+//			else
+//			{
+//				newTail->next = l1;
+//				newTail = newTail->next;
+//			}
+//			l1 = l1->next;
+//		}
+//		else
+//		{
+//			if (newHead == NULL)
+//			{
+//				newHead = newTail = l2;
+//			}
+//			else
+//			{
+//				newTail->next = l2;
+//				newTail = newTail->next;
+//			}
+//			l2 = l2->next;
+//		}
+//	}
+//	if (l2)
+//	{
+//		newTail->next = l2;
+//	}
+//	if (l1)
+//	{
+//		newTail->next = l1;
+//	}
+//	return newHead;
+//}
 
-
-
-
-
-
-
-
-
-
+//题目五：
