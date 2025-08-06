@@ -174,4 +174,43 @@
 //	return pcur->val;
 //}
 
-//题目六：
+//题目六：02.04.分割链表
+//创建新链表：小链表和大链表
+typedef struct ListNode ListNode;
+struct ListNode* partition(struct ListNode* head, int x) 
+{
+	if (head == NULL)
+	{
+		return head;
+	}
+	//创建两个带头链表
+	ListNode* lessHead, * lessTail;
+	ListNode* greaterHead, * greaterTail;
+	lessHead = lessTail = (ListNode*)malloc(sizeof(ListNode));
+	greaterHead = greaterTail = (ListNode*)malloc(sizeof(ListNode));
+
+	//遍历原链表
+	ListNode* pcur = head;
+	while (pcur)
+	{
+		if (pcur->val < x)
+		{
+			lessTail->next = pcur;
+			lessTail = lessTail->next;
+		}
+		else
+		{
+			greaterTail->next = pcur;
+			greaterTail = greaterTail->next;
+		}
+		pcur = pcur->next;
+	}
+	greaterTail->next = NULL;
+	lessTail->next = greaterHead->next;
+
+	ListNode* ret = lessHead->next;
+	free(lessHead);
+	free(greaterHead);
+	lessHead = greaterHead = NULL;
+	return ret;
+}
