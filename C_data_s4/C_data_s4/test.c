@@ -214,3 +214,4 @@ struct ListNode* partition(struct ListNode* head, int x)
 	lessHead = greaterHead = NULL;
 	return ret;
 }
+
