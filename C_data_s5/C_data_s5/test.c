@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"List.h"
-//双向链表专题
 
+//双向链表专题
 
 //链表分类:8种(2*2*2)
 //带头 不带头
