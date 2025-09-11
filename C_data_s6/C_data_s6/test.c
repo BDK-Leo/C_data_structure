@@ -2,6 +2,7 @@
 #include<stdio.h>
 //复杂度
 
+//时间复杂度
 //面试题1:消失的数字(力扣)
 //思路1：
 //int missingNumber(int* nums,int numsSize)
@@ -67,3 +68,7 @@
 //        nums[i] = newArr[i];
 //    }
 //}
+
+
+//空间复杂度
+//看变量个数
