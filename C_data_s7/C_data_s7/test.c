@@ -112,5 +112,105 @@
 //	return longList;
 //}
 
+//面试题4：环形链表（141力扣）
+/*
+bool hasCycle(struct ListNode* head)
+{
+	struct ListNode* slow = head,*fast = head;
+	while(fast && fast->next)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
 
+		if(slow == fast)
+			return true;
+	}
 
+	return false;
+}
+问题：
+1：为什么一定会相遇，有没有可能会错过，请证明。
+  slow进环时，fast处于追击slow的情况，slow走一步，fast便走两步，差距以一递减。
+2：slow一次走一步，fast走n步可不可以，请证明。
+  设slow进环时距离为N,考虑距离差，若一个走一步，一个走三步，则距离差规律为N-2，用距离N%2的结果来判断是否追上。
+  设环长度为C，若N为奇数，C-1为奇数，则永远追不上。但是永远追不上的条件不存在。结论：要么fast第一轮追上，要么就是第二轮追上。
+问题：寻找入口点pos.
+struct ListNode *detectCycle(struct ListNode *head) {
+    struct ListNode* slow = head,*fast = head;
+    while(fast && fast->next)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(slow == fast)
+        {
+            struct ListNode* meet = slow;
+            while(meet != head)
+            {
+                meet = meet->next;
+                head = head->next;
+            }
+            return meet;
+        }
+    }
+    return NULL;
+}
+ */
+
+//面试题5：随机链表的复制（138力扣）
+/*
+struct Node* copyRandomList(struct Node* head)
+{
+    struct Node* cur = head;
+    //拷贝节点插入在原节点的后面
+    while(cur)
+    {
+        struct Node* copy = (struct Node*)malloc(sizeof(struct Node));
+        copy->val = cur->val;
+
+        copy->next = cur->next;
+        cur->next = copy;
+
+        cur = copy->next;
+    }
+
+    //控制random
+    cur = head;
+    while(cur)
+    {
+        struct Node* copy = cur->next;
+        if(cur->random == NULL)
+        {
+            copy->random = NULL;
+        }
+        else
+        {
+            copy->random = cur->random->next;
+        }
+
+        cur = copy->next;
+    }
+
+    //把拷贝节点取下来尾插成为新链表，恢复原链表
+    struct Node* copyhead = NULL,*copytail = NULL;
+    cur = head;
+    while(cur)
+    {
+        struct Node* copy = cur->next;
+        struct Node* next = copy->next;
+
+        if(copytail == NULL)
+        {
+            copyhead = copytail = copy;
+        }
+        else
+        {
+            copytail->next = copy;
+            copytail = copytail->next;
+        }
+        cur->next = next;//恢复
+        cur = next;
+    }
+    return copyhead;
+}
+*/
