@@ -80,3 +80,90 @@ void myStackFree(MyStack* obj) {
 /*
 
 */
+
+//面试题3：设计循环队列（622力扣）
+//数组解法:
+/*
+typedef struct {
+    int* a;
+    int head;//指向头
+    int tail;//指向尾下一个
+    int k;
+
+} MyCircularQueue;
+
+
+MyCircularQueue* myCircularQueueCreate(int k) {
+    MyCircularQueue* obj = (MyCircularQueue*)malloc(sizeof(MyCircularQueue));
+
+    //多开一个解决假溢出问题
+    obj->a = (int*)malloc(sizeof(int)*(k+1));
+    obj->head = 0;
+    obj->tail = 0;
+    obj->k = k;
+
+    return obj;
+}
+
+bool myCircularQueueIsFull(MyCircularQueue* obj) {
+    return (obj->tail+1) % (obj->k+1) == obj->head;
+}
+
+bool myCircularQueueIsEmpty(MyCircularQueue* obj) {
+    return obj->head == obj->tail;
+}
+
+bool myCircularQueueEnQueue(MyCircularQueue* obj, int value) {
+    if(myCircularQueueIsFull(obj))
+    {
+        return false;
+    }
+    obj->a[obj->tail] = value;
+    obj->tail++;
+
+    obj->tail %= (obj->k+1);
+
+    return true;
+}
+
+bool myCircularQueueDeQueue(MyCircularQueue* obj) {
+    if(myCircularQueueIsEmpty(obj))
+    {
+        return false;
+    }
+    else
+    {
+        ++obj->head;
+    }
+    obj->head %= (obj->k+1);
+    return true;
+}
+
+int myCircularQueueFront(MyCircularQueue* obj) {
+    if(myCircularQueueIsEmpty(obj))
+    {
+        return -1;
+    }
+    else
+    {
+        return obj->a[obj->head];
+    }
+}
+
+int myCircularQueueRear(MyCircularQueue* obj) {
+    if(myCircularQueueIsEmpty(obj))
+    {
+        return -1;
+    }
+    else
+    {
+        return obj->tail == 0 ? obj->a[obj->k] : obj->a[obj->tail-1];
+        //return obj->a[(obj->tail-1+obj->k+1) % (obj->k+1)];
+    }
+}
+
+void myCircularQueueFree(MyCircularQueue* obj) {
+    free(obj->a);
+    free(obj);
+}
+*/
