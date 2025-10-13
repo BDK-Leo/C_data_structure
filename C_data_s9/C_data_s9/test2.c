@@ -78,7 +78,52 @@ void myStackFree(MyStack* obj) {
 
 //面试题2：用栈实现队列（232力扣）
 /*
+typedef struct {
+    ST pushst;
+    ST popst;
+} MyQueue;
 
+
+MyQueue* myQueueCreate() {
+    MyQueue* obj = (MyQueue*)malloc(sizeof(MyQueue));
+    STInit(&(obj->pushst));
+    STInit(&(obj->popst));
+    return obj;
+}
+
+void myQueuePush(MyQueue* obj, int x) {
+    STPush(&(obj->pushst),x);
+}
+
+int myQueuePeek(MyQueue* obj) {
+    if(STEmpty(&(obj->popst)))
+    {
+        //倒数据
+        while(!STEmpty(&(obj->pushst)))
+        {
+            int top = STTop(&(obj->pushst));
+            STPush(&(obj->popst),top);
+            STPop(&(obj->pushst));
+        }
+    }
+    return STTop(&(obj->popst));
+}
+
+int myQueuePop(MyQueue* obj) {
+    int front = myQueuePeek(obj);
+    STPop(&(obj->popst));
+    return front;
+}
+
+bool myQueueEmpty(MyQueue* obj) {
+    return STEmpty(&(obj->pushst)) && STEmpty(&(obj->popst));
+}
+
+void myQueueFree(MyQueue* obj) {
+    STDestroy(&(obj->popst));
+    STDestroy(&(obj->pushst));
+    free(obj);
+}
 */
 
 //面试题3：设计循环队列（622力扣）
