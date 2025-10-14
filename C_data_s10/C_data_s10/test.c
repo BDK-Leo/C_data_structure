@@ -1,5 +1,4 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#include<stdio.h>
 
 //二叉树
 
@@ -46,3 +45,23 @@ int main()
 完全二叉树
 任何一个父亲都<=孩子
 */
+
+#include"Heap.h"
+
+void TestHeap1()
+{
+	int a[] = {4,2,8,1,5,6,9,7};
+	HP hp;
+	HPInit(&hp);
+	for (size_t i = 0;i < sizeof(a)/sizeof(int);i++)
+	{
+		HPPush(&hp,a[i]);
+	}
+}
+
+int main()
+{
+	TestHeap1();
+
+	return 0;
+}
