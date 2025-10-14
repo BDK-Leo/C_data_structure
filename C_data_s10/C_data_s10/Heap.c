@@ -67,8 +67,20 @@ void HPPush(HP* php, HPDataType x)
 	AdjustUp(php->a,php->size - 1);
 }
 
+//向下调整
+void AdjustDown(HPDataType* a,int n,int parent)
+{
+
+}
+
 //删除堆顶的数据(根位置)
 void HPPop(HP* php)
 {
+	assert(php);
+	assert(php->size > 0);
 
+	Swap(&php->a[0],&php->a[php->size - 1]);
+	php->size--;
+
+	AdjustDown(php->a,php->size,0);
 }
