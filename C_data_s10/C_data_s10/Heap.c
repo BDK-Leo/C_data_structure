@@ -70,7 +70,26 @@ void HPPush(HP* php, HPDataType x)
 //向下调整
 void AdjustDown(HPDataType* a,int n,int parent)
 {
-
+	//假设左孩子小
+	int child = parent * 2 + 1;
+	while (child < n) // child>=n说明孩子不存在
+	{
+		//找出小的那个孩子
+		if (child + 1 < n && a[child + 1] < a[child])
+		{
+			++child;
+		}
+		if (a[child] < a[parent])
+		{
+			Swap(&a[child], &a[parent]);
+			parent = child;
+			child = parent * 2 + 1;
+		}
+		else
+		{
+			break;
+		}
+	}
 }
 
 //删除堆顶的数据(根位置)
@@ -83,4 +102,20 @@ void HPPop(HP* php)
 	php->size--;
 
 	AdjustDown(php->a,php->size,0);
+}
+
+HPDataType HPTop(HP* php)
+{
+	assert(php);
+	assert(php->size > 0);
+
+	return php->a[0];
+}
+
+//判空
+bool HPEmpty(HP* php)
+{
+	assert(php);
+
+	return php->size == 0;
 }

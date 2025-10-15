@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
-//二叉树
+//二叉树 堆
 
 //树
 /*struct TreeNode
@@ -57,11 +57,70 @@ void TestHeap1()
 	{
 		HPPush(&hp,a[i]);
 	}
+
+	//排序 空间复杂度为O(N)
+	int i = 0;
+	while (!HPEmpty(&hp))
+	{
+		//printf("%d ", HPTop(&hp));
+		a[i++] = HPTop(&hp);
+		HPPop(&hp);
+	}
+	for (size_t j = 0; j < sizeof(a) / sizeof(int); j++)
+	{
+		printf("%d ", a[j]);
+	}
+
+	//找出最大的前k个
+	/*int k = 0;
+	scanf("%d",&k);
+
+	while (k--)
+	{
+		printf("%d ",HPTop(&hp));
+		HPPop(&hp);
+	}
+	printf("\n");*/
+
+	HPDestroy(&hp);
+}
+
+//堆排序
+//O(N*logN)
+void HeapSort(int* a, int n)
+{
+	//建堆
+	//降序，建小堆
+	//升序，建大堆
+	for (int i = 1; i < n; i++)
+	{
+		AdjustUp(a, i);
+	}
+
+	int end = n - 1;
+	while (end > 0)
+	{
+		Swap(&a[0],&a[end]);
+		AdjustDown(a,end,0);
+		--end;
+	}
+
+	for (int j = 0; j < n; j++)
+	{
+		printf("%d ", a[j]);
+	}
+}
+
+void TestHeap2()
+{
+	int a[] = { 4,2,8,1,5,6,9,7 };
+	HeapSort(a,sizeof(a)/sizeof(int));
 }
 
 int main()
 {
-	TestHeap1();
+	//TestHeap1();
+	TestHeap2();
 
 	return 0;
 }
