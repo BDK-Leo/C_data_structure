@@ -92,9 +92,16 @@ void HeapSort(int* a, int n)
 	//建堆
 	//降序，建小堆
 	//升序，建大堆
-	for (int i = 1; i < n; i++)
+	/*for (int i = 1; i < n; i++)
 	{
+		//向上调整建堆O(N*logN)
 		AdjustUp(a, i);
+	}*/
+
+	for (int i = (n - 1 - 1) / 2; i >= 0; i--)
+	{
+		//向下调整建堆O(N)，效率更高
+		AdjustDown(a, n, i);
 	}
 
 	int end = n - 1;
