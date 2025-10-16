@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿#define _CRT_SECURE_NO_WARNINGS 1
 #include"Heap.h"
 
 void HPInit(HP* php)
@@ -16,7 +16,7 @@ void HPDestroy(HP* php)
 	php->capacity = php->size = 0;
 }
 
-//½»»»
+//äº¤æ¢
 void Swap(HPDataType* p1,HPDataType* p2)
 {
 	HPDataType tmp = *p1;
@@ -24,7 +24,7 @@ void Swap(HPDataType* p1,HPDataType* p2)
 	*p2 = tmp;
 }
 
-//ÏòÉÏµ÷Õû
+//å‘ä¸Šè°ƒæ•´
 void AdjustUp(HPDataType* a,int child)
 {
 	int parent = (child - 1) / 2;
@@ -67,14 +67,14 @@ void HPPush(HP* php, HPDataType x)
 	AdjustUp(php->a,php->size - 1);
 }
 
-//ÏòÏÂµ÷Õû
+//å‘ä¸‹è°ƒæ•´
 void AdjustDown(HPDataType* a,int n,int parent)
 {
-	//¼ÙÉè×óº¢×ÓĞ¡
+	//å‡è®¾å·¦å­©å­å°
 	int child = parent * 2 + 1;
-	while (child < n) // child>=nËµÃ÷º¢×Ó²»´æÔÚ
+	while (child < n) // child>=nè¯´æ˜å­©å­ä¸å­˜åœ¨
 	{
-		//ÕÒ³öĞ¡µÄÄÇ¸öº¢×Ó
+		//æ‰¾å‡ºå°çš„é‚£ä¸ªå­©å­
 		if (child + 1 < n && a[child + 1] < a[child])
 		{
 			++child;
@@ -92,7 +92,7 @@ void AdjustDown(HPDataType* a,int n,int parent)
 	}
 }
 
-//É¾³ı¶Ñ¶¥µÄÊı¾İ(¸ùÎ»ÖÃ)
+//åˆ é™¤å †é¡¶çš„æ•°æ®(æ ¹ä½ç½®)
 void HPPop(HP* php)
 {
 	assert(php);
@@ -112,7 +112,7 @@ HPDataType HPTop(HP* php)
 	return php->a[0];
 }
 
-//ÅĞ¿Õ
+//åˆ¤ç©º
 bool HPEmpty(HP* php)
 {
 	assert(php);

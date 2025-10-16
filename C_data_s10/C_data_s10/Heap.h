@@ -1,10 +1,10 @@
-#pragma once
+Ôªø#pragma once
 #include<stdio.h>
 #include<assert.h>
 #include<stdlib.h>
 #include<stdbool.h>
 
-//–°∂— ¥Û∂—
+//Â∞èÂ†Ü Â§ßÂ†Ü
 
 typedef int HPDataType;
 

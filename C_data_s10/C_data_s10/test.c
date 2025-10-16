@@ -1,13 +1,13 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+ï»¿#define _CRT_SECURE_NO_WARNINGS 1
 
-//¶ş²æÊ÷ ¶Ñ
+//äºŒå‰æ ‘ å †
 
-//Ê÷
+//æ ‘
 /*struct TreeNode
 {
 	int val;
 	
-	//×óº¢×ÓÓÒĞÖµÜ±íÊ¾·¨
+	//å·¦å­©å­å³å…„å¼Ÿè¡¨ç¤ºæ³•
 	struct TreeNode* leftchild;
 	struct TreeNode* rightBrother;
 };
@@ -19,34 +19,35 @@ int main()
 }*/
 
 /*
-1.Ë³Ğò´æ´¢
-ÓÃÊı×éÏÂ±ê¸¸×Ó¹ØÏµÀ´±íÊ¾¡£
-¼ÙÉè¸¸Ç×ÔÚÊı×éÖĞµÄÏÂ±ê£ºi
-×óº¢×ÓÔÚÊı×éÖĞµÄÏÂ±ê£º2*i+1
-ÓÒº¢×ÓÔÚÊı×éÖĞµÄÏÂ±ê£º2*i+2
+1.é¡ºåºå­˜å‚¨
+ç”¨æ•°ç»„ä¸‹æ ‡çˆ¶å­å…³ç³»æ¥è¡¨ç¤ºã€‚
+å‡è®¾çˆ¶äº²åœ¨æ•°ç»„ä¸­çš„ä¸‹æ ‡ï¼ši
+å·¦å­©å­åœ¨æ•°ç»„ä¸­çš„ä¸‹æ ‡ï¼š2*i+1
+å³å­©å­åœ¨æ•°ç»„ä¸­çš„ä¸‹æ ‡ï¼š2*i+2
 
-¼ÙÉèº¢×ÓÔÚÊı×éÖĞµÄÏÂ±ê£ºj
-¸¸Ç×ÔÚÊı×éÖĞµÄÏÂ±ê£º(j-1)/2
+å‡è®¾å­©å­åœ¨æ•°ç»„ä¸­çš„ä¸‹æ ‡ï¼šj
+çˆ¶äº²åœ¨æ•°ç»„ä¸­çš„ä¸‹æ ‡ï¼š(j-1)/2
 
-Êı×éÖ»ÊÊºÏ´æ´¢Âú¶ş²æÊ÷ºÍÍêÈ«¶ş²æÊ÷
+æ•°ç»„åªé€‚åˆå­˜å‚¨æ»¡äºŒå‰æ ‘å’Œå®Œå…¨äºŒå‰æ ‘
 */
 
 /*
-2.Á´Ê½´æ´¢
+2.é“¾å¼å­˜å‚¨
 
 */
 
 /*
-´ó¶Ñ£º
-ÍêÈ«¶ş²æÊ÷¡£
-ÈÎºÎÒ»¸ö¸¸Ç×¶¼>=º¢×Ó
+å¤§å †ï¼š
+å®Œå…¨äºŒå‰æ ‘ã€‚
+ä»»ä½•ä¸€ä¸ªçˆ¶äº²éƒ½>=å­©å­
 
-Ğ¡¶Ñ£º
-ÍêÈ«¶ş²æÊ÷
-ÈÎºÎÒ»¸ö¸¸Ç×¶¼<=º¢×Ó
+å°å †ï¼š
+å®Œå…¨äºŒå‰æ ‘
+ä»»ä½•ä¸€ä¸ªçˆ¶äº²éƒ½<=å­©å­
 */
 
 #include"Heap.h"
+#include<time.h>
 
 void TestHeap1()
 {
@@ -58,7 +59,7 @@ void TestHeap1()
 		HPPush(&hp,a[i]);
 	}
 
-	//ÅÅĞò ¿Õ¼ä¸´ÔÓ¶ÈÎªO(N)
+	//æ’åº ç©ºé—´å¤æ‚åº¦ä¸ºO(N)
 	int i = 0;
 	while (!HPEmpty(&hp))
 	{
@@ -71,7 +72,7 @@ void TestHeap1()
 		printf("%d ", a[j]);
 	}
 
-	//ÕÒ³ö×î´óµÄÇ°k¸ö
+	//æ‰¾å‡ºæœ€å¤§çš„å‰kä¸ª
 	/*int k = 0;
 	scanf("%d",&k);
 
@@ -85,25 +86,26 @@ void TestHeap1()
 	HPDestroy(&hp);
 }
 
-//¶ÑÅÅĞò
+//å †æ’åº
 //O(N*logN)
 void HeapSort(int* a, int n)
 {
-	//½¨¶Ñ
-	//½µĞò£¬½¨Ğ¡¶Ñ
-	//ÉıĞò£¬½¨´ó¶Ñ
+	//å»ºå †
+	//é™åºï¼Œå»ºå°å †
+	//å‡åºï¼Œå»ºå¤§å †
 	/*for (int i = 1; i < n; i++)
 	{
-		//ÏòÉÏµ÷Õû½¨¶ÑO(N*logN)
+		//å‘ä¸Šè°ƒæ•´å»ºå †O(N*logN)
 		AdjustUp(a, i);
 	}*/
 
 	for (int i = (n - 1 - 1) / 2; i >= 0; i--)
 	{
-		//ÏòÏÂµ÷Õû½¨¶ÑO(N)£¬Ğ§ÂÊ¸ü¸ß
+		//å‘ä¸‹è°ƒæ•´å»ºå †O(N)ï¼Œæ•ˆç‡æ›´é«˜
 		AdjustDown(a, n, i);
 	}
 
+	//O(N*logN)
 	int end = n - 1;
 	while (end > 0)
 	{
@@ -124,10 +126,91 @@ void TestHeap2()
 	HeapSort(a,sizeof(a)/sizeof(int));
 }
 
+//ç”¨å‰Kä¸ªæ•°å»ºä¸€ä¸ªå°å †ï¼Œå‰©ä¸‹çš„æ•°æ®è·Ÿå †é¡¶æ•°æ®æ¯”è¾ƒï¼Œ
+//å¦‚æœæ¯”å †é¡¶çš„æ•°æ®å¤§å°±æ›¿ä»£å †é¡¶å…¥å †(è¦†ç›–æ ¹ä½ç½®ï¼Œç„¶åå‘ä¸‹è°ƒæ•´)
+//æœ€ç»ˆè¿™ä¸ªå°å †ä¸­çš„Kä¸ªï¼Œå°±æ˜¯æœ€å¤§çš„å‰Kä¸ª
+//O(N)
+void CreateDate()
+{
+	//é€ æ•°æ®
+	int n = 100000;
+	srand(time(0));
+	const char* file = "data.txt";
+	FILE* fin = fopen(file,"w");
+	if (fin == NULL)
+	{
+		perror("fopen error");
+		return;
+	}
+	
+	for (int i = 0;i < n;++i)
+	{
+		int x = (rand() + i) % 10000000;
+		fprintf(fin, "%d\n", x);
+	}
+
+	fclose(fin);
+}
+
+void TestHeap3()
+{
+	int k;
+	printf("è¾“å…¥Kçš„ä¸ªæ•°ï¼š");
+	scanf("%d",&k);
+	int* Kminheap = (int*)malloc(sizeof(int)*k);
+	if (Kminheap == NULL)
+	{
+		perror("malloc fail!");
+		return;
+	}
+
+	//è¯»
+	const char* file = "data.txt";
+	FILE* fout = fopen(file, "r");
+	if (fout == NULL)
+	{
+		perror("fopen error");
+		return;
+	}
+
+	//è¯»å–æ–‡ä»¶ä¸­å‰Kä¸ªæ•°
+	for (int i = 0;i < k;i++)
+	{
+		fscanf(fout,"%d", &Kminheap[i]);
+	}
+
+	//å»ºKä¸ªæ•°çš„å°å † O(K)
+	for (int i = (k-1-1)/2;i >= 0;i--)
+	{
+		AdjustDown(Kminheap, k, i);
+	}
+
+	//è¯»å–å‰©ä¸‹çš„N-Kä¸ªæ•°
+	int x = 0;
+	while (fscanf(fout,"%d", &x) > 0)
+	{
+		if (x > Kminheap[0])
+		{
+			Kminheap[0] = x;
+			AdjustDown(Kminheap,k,0);
+		}
+	}
+
+	printf("æœ€å¤§çš„å‰Kä¸ªï¼š");
+	for (int i = 0;i < k;i++)
+	{
+		printf("%d ",Kminheap[i]);
+	}
+	printf("\n");
+}
+
 int main()
 {
 	//TestHeap1();
-	TestHeap2();
+	//TestHeap2();
+
+	//CreateDate();
+	TestHeap3();
 
 	return 0;
 }
